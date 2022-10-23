@@ -22,10 +22,10 @@
             <strong>Name: {{ cart.items[0].name }}</strong>
           </p>
           <p>
-            <strong>Quantity: {{ cart.items.length }}</strong>
+            <strong>Quantity: {{ cart.quantity }}</strong>
           </p>
           <p>
-            <strong>Total: {{ cart.total }}</strong>
+            <strong>Total: {{ cart.total + " $" }}</strong>
           </p>
           <p v-if="cart.paid" class="green--text">
             <strong>Paid</strong>
@@ -41,24 +41,26 @@
             color="black"
             width="50%"
             @click="
-              postData(
-                'https://634a16c333bb42dca4fe1722.mockapi.io/api/cart',
-                {
-                  paid: true,
-                }
-              )/* .then(() => {
-                postData(
-                  'https://634a16c333bb42dca4fe1722.mockapi.io/api/cart',
-                  {
-                    paid: true,
-                  }
-                );
-              }) */
+              postData('https://634a16c333bb42dca4fe1722.mockapi.io/api/cart', {
+                paid: true,
+              })
+              alert = !alert
             "
           >
             Pay
           </v-btn>
         </v-card-actions>
+        <v-alert
+          color="green"
+          dense
+          type="success"
+          height="40px"
+          width="170px"
+          class="d-fixed mx-auto"
+          :value="alert"
+        >
+          Success!
+        </v-alert>
       </v-card>
     </template>
   </section>
@@ -66,6 +68,11 @@
 <script>
 export default {
   props: ['cart'],
+  data () {
+    return {
+      alert: false
+    }
+  },
   methods: {
     async postData (url = '', data = {}) {
       // Default options are marked with *

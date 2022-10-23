@@ -1,5 +1,4 @@
 # food-nuxt-app
-## My food store app using Vuejs, Vuetify, Nuxtjs
 
 ## Build Setup
 

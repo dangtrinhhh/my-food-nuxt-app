@@ -24,10 +24,11 @@ export default {
   },
 
   async fetch () {
-    const result = await fetch('https://634a16c333bb42dca4fe1722.mockapi.io/api/cart')
-      .then(response => response.json())
+    const result = await fetch(
+      'https://634a16c333bb42dca4fe1722.mockapi.io/api/cart'
+    ).then(response => response.json())
     this.carts = result
-    this.unpaidcarts = this.carts.filter(cart => (cart.paid === false))
+    this.unpaidcarts = this.carts.filter(cart => cart.paid === false)
   },
 
   /* async mounted () {
