@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{421:function(n,e){var t=[{id:3,name:"test3",price:1100,quantity:3}].push({id:3,name:"test3",price:1100,quantity:3});console.log(t)}}]);
